@@ -1,0 +1,229 @@
+/**
+* @file resources/less/forms.less
+*
+* Copyright (c) 2014-2020 Simon Fraser University
+* Copyright (c) 2003-2020 John Willinsky
+* Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+*
+* @brief Stylesheet for forms components (buttons, labels, etc.)
+*
+*/
+
+/* General elements */
+
+form {
+  font-family: @font-family-secondary;
+  font-size: smaller;
+}
+
+fieldset {
+  margin-bottom: 2.5rem;
+
+	> fieldset legend {
+		font-size: 1rem;
+	}
+}
+
+legend {
+  font-weight: 600;
+}
+
+select {
+  -webkit-appearance: none;
+  background-position: right 50%;
+  background-repeat: no-repeat;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=);
+}
+
+option {
+  padding: 1.15em 0.25em 1.15em 0;
+}
+
+button {
+	&:extend(.btn);
+	&:extend(.btn-secondary);
+}
+
+input {
+	&:extend(.form-control);
+
+	&::placeholder{
+		font-size: smaller;
+		color: fade(@contrast-colour, 75%);
+	}
+}
+
+.label {
+	margin-top: 20px;
+	margin-bottom: 15px;
+	font-size: larger;
+}
+
+
+/** Custom Bootstrap form overrides **/
+
+.form-group {
+	margin-bottom: 2.5em;
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.form-row {
+	margin-left: 0;
+	margin-right: 0;
+
+	select, input {
+		&:not(:last-child) {
+			border-right: 0;
+		}
+	}
+}
+
+.form-control {
+	display: block;
+	height: auto;
+  padding: 0.75em;
+	margin-bottom: 0.5em;
+  background-color: transparent;
+  border-radius: 0;
+  border: 0;
+  border: 1px solid @contrast-colour;
+  color: @contrast-colour;
+
+  &:focus, &:active, &:hover {
+    box-shadow: unset;
+    background-color: transparent;
+    border-color: @secondary-colour;
+  }
+}
+
+.custom-radio .custom-control-input:checked~.custom-control-label::before,
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before,
+.custom-control-input:checked~.custom-control-label::before{
+  background-color: @contrast-colour;
+}
+
+.custom-control-input:active~.custom-control-label::before {
+  background-color: fade(@contrast-colour, 50%);
+}
+
+.custom-control-input:focus~.custom-control-label::before {
+  box-shadow: 0 0 0 1px @contrast-colour, 0 0 0 0.2rem @contrast-colour;
+}
+
+.custom-checkbox .custom-control-label::before {
+  border-radius: 0;
+}
+
+// Tagit-style inputs
+.ui-widget {
+	font-family: @font-family-secondary;
+
+	&.ui-widget-content {
+		&:extend(.form-control);
+	}
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+	border-radius: 0;
+	border-color: @contrast-colour;
+	background-color: @contrast-colour;
+	color: @primary-colour;
+}
+
+.ui-icon, .ui-widget-content .ui-icon, .ui-widget-header .ui-icon {
+	background-image: url("/@{themeUrl}/resources/images/ui-icons_444444_256x240.png");
+}
+
+// Button-like dropdown menu
+
+.dropdown-menu {
+	padding: 0;
+	border-radius: 0;
+	border: 0;
+	background-color: contrast(@contrast-colour);
+
+	.dropdown-item {
+		padding: 0;
+		font-family: @font-family-secondary;
+
+		a {
+			display: block;
+			padding: 1rem 2rem;
+			text-decoration: none;
+			color: @contrast-colour;
+
+			&.active,
+			&:active,
+			&:hover,
+			&:focus {
+				background-color: @contrast-colour;
+				color: contrast(@contrast-colour);
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+// Buttons
+
+.btn {
+	cursor: pointer;
+  border-radius: 0;
+  font-family: @font-family-secondary;
+  border: 1px solid transparent;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: @contrast-colour;
+  border: 1px solid @contrast-colour;
+  font-weight: 400;
+  color: @primary-colour;
+  text-decoration: none;
+}
+
+.btn-primary:hover,
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+  background-color: transparent;
+  border: 1px solid @contrast-colour;
+  color: @contrast-colour;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid @contrast-colour;
+  color: @contrast-colour;
+
+	&:hover, &:active, &:focus {
+	  background-color: @contrast-colour;
+	  border-color: @contrast-colour;
+	  color: @primary-colour;
+	}
+}
+
+/* Custom autofill styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border-color: @secondary-contrast-colour;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-box-shadow: 0 0 0px 1000px @secondary-contrast-colour inset;
+	-webkit-text-fill-color: @primary-colour;
+}
